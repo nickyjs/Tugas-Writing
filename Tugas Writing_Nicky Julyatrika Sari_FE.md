@@ -67,6 +67,7 @@ __Dibawah ini beberapa tag HTML dan pengertiannya__
 Elemen semantic adalah elemen yang dengan jelas menggambarkan artinya bagi browser dan pengembang.contohnya tag nav, tag article, tag section. Berikut tag semantic HTML , elemen semantik dengan jelas menggambarkan artinya bagi browser dan pengembang. contoh elemen semantic : form , table, dan article Jelas mendefinisikan isinya.
 
  __Contoh HTML sederhana__
+
  ![](gambar1.jpg)
 
  	didalam kode diatas terdapat tag h1 untuk membuat judulnya dan tag p sebagai isinya
