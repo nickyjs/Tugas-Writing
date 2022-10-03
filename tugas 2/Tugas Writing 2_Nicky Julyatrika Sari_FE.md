@@ -130,7 +130,11 @@ Kita bisa melakukan aksi tertentu untuk merespon event tersebut. Misalnya: Saat 
 ![sebelum](btn.png)
 
 
-*Sesudah di klik(setelah ada action)
+* Sesudah di klik(setelah ada action)
 
 ![](btn1.png)
 
+__Terimakasih__
+
+_03 Oktober 2022 17.15_
+_@lyalfya_

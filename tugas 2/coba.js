@@ -28,6 +28,8 @@
 
 // let  paragraph = document.getElementById("div")
 // paragraph.style.backgroundColor = "pink";
+
+
 let button = document.getElementById("button")
 button.addEventListener("click", function(){
     alert("peringatan!!!!!!!!!!!!!!")
