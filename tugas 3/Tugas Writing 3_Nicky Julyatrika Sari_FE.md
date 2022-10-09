@@ -297,6 +297,11 @@ B
   ```
 
 
+Terimakasih
+
+_09 Oktober 2022 16.51 @lyalfya_
+
+
 
 
 
