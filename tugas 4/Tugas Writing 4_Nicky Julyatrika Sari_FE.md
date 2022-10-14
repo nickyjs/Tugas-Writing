@@ -130,6 +130,65 @@ console.log(myAsync())
     13. Tunggu pull request di acc oleh team lead.
     14. Jika sudah, ulangi proses dari no 2.
 
+# RESPONSIVE WEB DESIGN
+
+* Pengertian
+  
+  Responsive Web Design adalah pendekatan yang menyarankan bahwa desain dan pengembangan harus merespons perilaku dan lingkungan pengguna /user berdasarkan ukuran layar, platform, dan orientasi.Responsive Web Design bertujuan membuat design website dapat diakses dalam device apapun. Dalam membuat aplikasi/website kita harus memikirkan pengguna/user dari aplikasi/website yang akan dibuat. Devise yang umum digunakan oleh user antara lain Laptop/PC, Smartphone, dan tablet.
+
+* Dasar
+
+1. Menentukan viewport di HTML ini akan memastikan bahwa situs yang yang dibuat tidak memiliki gulir horizontal(Situs akan terlihat, dan pengguna tidak perlu untuk memperbesar ponsel untuk melihat kontennya).
+   
+   ```HTML
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   ```
+2. Sertakan Reset Browser
+   
+   Setiap browser merender konten sedikit berbeda. tidak hanya itu, beberapa orang masih menggunakan browser versi lama. Beberapa pengembang telah membuat stylesheet untuk mengatasi masalah ini. Yang paling banyak digunakan adalah Reset dan Normalize . Perbedaan antara keduanya adalah Reset sepenuhnya menghapus semua style, sementara Normalisasi mencoba menambahkan konsistensi pada style browser
+
+   * Normalize
+
+    ```HTML
+    <link rel="stylesheet" href="css/normalize.min.css" />
+    ```
+3. Reset Border box
+   
+   Reset border box membuat padding konsisten dan mencegah frustration.
+
+    ```Javascript
+        html{
+            box-sizing: border-box;
+        }   
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+    ```
+
+4. jQuery
+   
+   ```HTML
+   <script src="js/jquery.min.js"></script>
+   ```
+
+5. Media Query
+   
+   Media query digunakan untuk membuat beberapa style tergantung pada jenis device. media query untuk responsive web design umumnya hanya menggunakan dua jenis media query yaitu min-width dan max-width
+
+   ```HTML
+   @media screen and (min-width : your pixel){
+
+   }
+   @media screen and (max-width : your pixel){
+
+   }
+   ```
+
+6. Breakpoints
+   
+   Breakpoints merupakan perubahan yang terjadi pada tampilan saat berganti device atau ukuran width. Umumnya breakpoint terjadi saat ukuran viewport membesar atau mengecil.
 
 
 __Terimakasih__
