@@ -486,9 +486,59 @@ console.log(myAsync())
   
   Bootstrap adalah framework HTML, CSS, dan JavaScript yang berfungsi untuk mendesain website responsive dengan cepat dan mudah. Framework open source ini diciptakan pada tahun 2011 oleh Mark Otto dan Jacob Thornton dari Twitter. Itulah kenapa dulunya Bootstrap dinamakan Twitter Blueprint.
 
+* Breakpoint
+  
+  Bootstrap didesain untuk mendukung tampilan yang responsif. Maka dari itu, dibutuhkan breakpoint sebagai acuan untuk menyesuaikan tampilan dalam berbagai ukuran viewport. Misalkan pada ukuran desktop, content dipaparkan secara horizontal ke kanan, sedangkan pada ukuran mobile phone, content dipaparkan secara vertical ke bawah.
 
+    Dalam bootstrap terdapat beberapa breakpoint, yaitu:
 
+  ```SCSS
+  $grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+     xl: 1200px,
+    xxl: 1400px
+    );
+    ```
 
+* Container
+  
+  Container adalah elemen paling dasar dalam layout bootstrap. Terdapat 3 macam container dalam bootstrap, yaitu:
+
+  1. Default Container : Class container memiliki sifat yang responsive dan fixed-width, yang berarti lebarnya akan berubah pada setiap breakpoint.
+  2. Fluid Container : Class container-fluid memiliki lebar yang sama dengan viewport.
+  3. Responsive Container : Responsive container, diurutkan dari breakpoint terkecil, terdiri dari:
+    ```CSS
+    * .container-sm.
+    * .container-md
+    * .container-lg
+    * .container-xl
+    * .container-xxl
+    ```
+* Grid
+  
+  Grid biasanya digunakan bersama dengan container. 
+
+  Grid system membagi lebar halaman menjadi 12 bagian. Sehingga apabila menggunakan class col-8, maka lebarnya akan menjadi 8/12 atau 2/3 dari lebar halaman.
+  
+  Contoh lainnya jika menggunakan col-4, maka lebarnya akan menjadi 4/12 atau 1/3 dari lebar halaman. Jika suatu barisan sudah penuh (memenuhi 12 kolom grid), maka div selanjutnya akan diletakkan di baris berikutnya.
+  
+  ```HTML
+  <div class="container">
+    <div class="row">
+        <div class="col-8">col-8</div>
+        <div class="col-4">col-4</div>
+    </div>
+  </div>
+  ```
+
+* Gutters
+  
+  Gutter berfungsi untuk memberikan jarak antar item di dalamnya. 
+
+  Penggunaan gutter sama seperti padding dan margin. Terdapat g-1 hingga g-5 di mana g-1 memberi jarak terkecil dan g-5 terbesar. Selain itu terdapat gx jika hanya untuk jarak di kiri dan kanan, dan gy jika hanya untuk jarak di atas dan bawah. Gutter juga dapat diasosiasikan dengan breakpoints seperti g-lg-5.
 
 
 
@@ -496,5 +546,5 @@ console.log(myAsync())
 
 __Terimakasih__
 
-_14 Oktober 2022 13.25_
+_15 Oktober 2022 19.45_
 
