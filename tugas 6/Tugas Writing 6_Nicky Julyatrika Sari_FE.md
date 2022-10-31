@@ -356,27 +356,27 @@ Terdapat beberapa cara melakukan styling pada component react js yaitu :
       export default Style
   ```
 
-- Inline CSS
+2.  Inline CSS
 
 
-- Bootstrap
-Kita dapat menggunakan framework bootstrap ke react tetapi gunakan salah satu cara agar tidak tabrakan
-  - Menggunakan bootstrap CDN
-    - Buka webiste [bootstrap](https://getbootstrap.com/)
-    - Lalu copy paste link CDN ke folder `public/index.html` pada bagian tag head
-    - CSS : `<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">`
-    - JavaScript: `<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>`
+3.  Bootstrap
 
-    - Setelah paste, buka folder `src/App.jsx` dan edit code bootstrap di file tersebut
-    - Simpan dan jalankan project
+    - Menggunakan bootstrap CDN
+        - Buka webiste [bootstrap](https://getbootstrap.com/)
+        - Lalu copy paste link CDN ke folder `public/index.html` pada bagian tag head
+        - CSS : `<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">`
+        - JavaScript: `<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>`
 
-  - Menginstall bootstrap melalui npm
-    - Buka terminal (bash) dan arahkan ke dalam folder project react
-    - Ketikkan `npm install bootstrap`
-    - Lalu import file bootstrap ke dalam folder src/main.jsx atau src/index.js
-    - CSS: `import "bootstrap/dist/css/bootstrap.min.css"`
-    - JavaScript: `import "bootstrap/dist/js/bootstrap.bundle.min"`
-    - Simpan dan jalankan project
+        - Setelah di paste, buka folder `src/App.jsx` dan edit code bootstrap di file tersebut
+        - Simpan dan jalankan project
+
+    - Menginstall bootstrap melalui npm
+        - Buka terminal (bash) dan arahkan ke dalam folder project react
+        - Ketikkan `npm install bootstrap`
+        - Lalu import file bootstrap ke dalam folder src/main.jsx atau src/index.js
+        - CSS: `import "bootstrap/dist/css/bootstrap.min.css"`
+        - JavaScript: `import "bootstrap/dist/js/bootstrap.bundle.min"`
+        - Simpan dan jalankan project
 
 # Handling Events & Conditional Rendering
 
