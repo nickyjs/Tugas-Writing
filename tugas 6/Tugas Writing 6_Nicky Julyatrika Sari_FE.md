@@ -388,38 +388,7 @@ Berikut untuk contoh penerapannya dengan study case user harus login terlebih da
     }
 export default App;
 ```
-# Lifecycle Method
 
-## Lifecycle Method
-__Lifecycle (Siklus Hidup)__ adalah  aktifitas method yang dilakukan oleh React Native ketika aplikasi di jalankan. Tujuan lifecycle penting untuk dipelajari karena lifecycle mengatur semua aktifitas yang terjadi pada aplikasi yang kita buat. 
-Jenis-jenis lifecycle pada react diantaranya : 
-
-* Mount
-  Sebuah siklus ketika aplikasi baru saja di buka atau pengertian mudahnya mount itu untuk memunculkan.
-  
-* Update
-  Sebuah siklus ketika kita mengubah data yang telah di Mounting.
-
-* Unmount
-  Proses menghilangkan atau mendestroy komponen yang sebelumnya di definisikan.
-
-
-Dalam lifecycle terdapat yang namanya useEffect(),berfungsi untuk memberi efek samping ketika proses lifecycle berlangsung. Ketika akan menggunakan useEffect, kita pasti akan membutuhkan useState sebagai penampung 
-Berikut contoh penerapannya untuk menampilkan list digimon : 
-
-```javascript
-    function ListDigimon() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [digimons, setDigimons] = useState([]);
-    useEffect(() => { 
-        axios("https://digimon-api.vercel.app/api/digimon") // Untuk melakukan fetching data digimon
-        .then((res) => {
-        setDigimons(res.data);
-        setIsLoading(false);
-        console.log(res.data);
-        });
-    }, []);
-```
 
 # REACT JS HOOKS
 
@@ -478,7 +447,7 @@ functional component akan melakukan 'hooks' terhadap hal-hal yang hanya ada di c
 
 Penggunaan useState sedikit berbeda dengan setState/state di class component, namun pengertian useState sendiri sama seperti dengan state biasa.
 
-## Cara penggunaan usestate hooks
+## Cara penggunaan useState hooks
 
 
 ```Javascript
@@ -495,7 +464,7 @@ Penggunaan useState sedikit berbeda dengan setState/state di class component, na
         );
    };
     // output : Julya sedang belajar React JS
-    // apabila button di klik maka akan berubah menjadi 'JNickyulya sedang belajar React JS'
+    // apabila button di klik maka akan berubah menjadi 'Nickyulya sedang belajar React JS'
    ```
 ## Update State
 State bisa diubah menggunakan variabel kedua dari state hooks.
@@ -507,3 +476,126 @@ contoh:
  ```
 
     Untuk mengubahnya kita tinggal menggunakan setNama
+
+## Array dalam useState Hooks
+
+Untuk menyimpan data dalam state kita bisa menggunakan array. 
+
+    Untuk menandakan bahwa state tersebut array tinggal ditambahkan tanda [].
+
+Contoh :
+
+```Javascript
+const [nama, setNama] = useState([]);
+```
+## Contoh Case Penggunaaan useState hooks
+
+
+useState biasa digunakan jika kita ingin menyimpan data suatu form yang nantinya  akan di post ke API untuk diproses.
+
+## useEffect hooks
+
+useEffect merupakan hooks yang bisa digunakan untuk menggunakan lifecycle pada functional component dengan mudah.
+
+## Cara penggunaan Useeffect
+
+```Javascript
+import { useEffect }  from "react" //meng-import useEffect
+
+// penggunaan useEffect hooks sebelum dirender
+useEffect(() => {
+  console.log(telah terjadi perubahan")
+}, [nama])
+```
+## Contoh Case Penggunaaan useeffect hooks
+
+useEffect, biasanya akan digunakan saat membuat call API, karena API akan dipanggil saat komponen terbentuk, maka call API bisa dilakukan dalam useEffect.
+
+## Infinity re-render
+
+Re-render yang berlebihan / infinite render mungkin saja akan terjadi, kita bisa menambahkan [] / variabel yang berubah untuk menentukan bahwa useEffect hanya akan berjalan saat terjadi update pada variabel yangbagian bawah akhir
+
+## Lifecycle Method
+__Lifecycle (Siklus Hidup)__ adalah  aktifitas method yang dilakukan oleh React Native ketika aplikasi di jalankan. Tujuan lifecycle penting untuk dipelajari karena lifecycle mengatur semua aktifitas yang terjadi pada aplikasi yang kita buat. 
+Jenis-jenis lifecycle pada react diantaranya : 
+
+* Mount
+  Sebuah siklus ketika aplikasi baru saja di buka atau pengertian mudahnya mount itu untuk memunculkan.
+  
+* Update
+  Sebuah siklus ketika kita mengubah data yang telah di Mounting.
+
+* Unmount
+  Proses menghilangkan atau mendestroy komponen yang sebelumnya di definisikan.
+
+
+Dalam lifecycle terdapat yang namanya useEffect(),berfungsi untuk memberi efek samping ketika proses lifecycle berlangsung. Ketika akan menggunakan useEffect, kita pasti akan membutuhkan useState sebagai penampung 
+Berikut contoh penerapannya untuk menampilkan list digimon : 
+
+```javascript
+    function ListDigimon() {
+    const [isLoading, setIsLoading] = useState(true);
+    const [digimons, setDigimons] = useState([]);
+    useEffect(() => { 
+        axios("https://digimon-api.vercel.app/api/digimon") // Untuk melakukan fetching data digimon
+        .then((res) => {
+        setDigimons(res.data);
+        setIsLoading(false);
+        console.log(res.data);
+        });
+    }, []);
+```
+
+# Form
+
+Penggunaan form di react sebenarnya sama saja dengan penggunaannya di HTML biasa. Namun ketika menghadapi banyak kasus, akan lebih mudah jika memiliki sebuah fungsi JavaScript yang menangani sebuah submisi dari sebuah form dan memiliki akses terhadap data yang dimasukkan pengguna ke dalam form. Seperti halnya elemen form seperti tag input, textarea & select, mereka punya state masing-masing & meng-update sesuai inputan user. Di react, state yang dapat berubah ini akan disimpan dalam property yaitu menggunakan setState().
+
+Contoh : 
+
+```javascript
+    import { useState } from "react";
+    import axios from "axios";
+
+    const Form = () => { // Membuat fungsi bernama Form
+    const [name, setName] = useState(""); // untuk menampung nama & untuk mengubahnya nanti
+    const [address, setAddress] = useState(""); //  untuk menampung address & untuk mengubahnya nanti
+    const [data, setData] = useState({}); // untuk menampung data & untuk menampilkannya nanti
+    const handleSubmit = (e) => { // Membuat fungsi untuk menghandle submit
+    e.preventDefault();
+    
+    axios // Untuk mengirimkan data yang isinya : name, address, program dari database
+      .post("http://localhost:3000/student", { // local host disini merupakan api dummy yang dibuat untuk contoh dalam proses ini
+        name,
+        address,
+      })
+      .then(() => {
+        setData({ name, address, program }); // Untuk menampilkan nama, address, program
+        setName(""); // untuk mengosongkan form name ketika button submit  di klik
+        setAddress(""); // untuk mengosongkan form address ketika button di klik
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+    
+    return ( 
+    <>
+        <form action="" onSubmit={handleSubmit}>  {/* Memanggil fungsi handleSubmit ketika button submit di klik */}
+        <label htmlFor="name">Name</label> 
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />  {/* Mengambil value inputan name user */}
+        <label htmlFor="address">Address</label>
+        <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} /> {/* Mengambil value inputan address user */}
+        <button type="submit">Submit</button>
+        </form>
+        <br />
+        <h2>Name: {data.name}</h2> {/* Menampilkan name hasil dari inputan */}
+        <h2>Address: {data.address}</h2> {/* Menampilkan address hasil dari inputan */}
+    </>
+  );
+};
+```
+
+Terimakasih
+
+_31 Oktober 2022 11.35  @lyalfya_
+
