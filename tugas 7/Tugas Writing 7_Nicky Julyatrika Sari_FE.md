@@ -70,7 +70,7 @@ export default App;
 
 # React Router 6
 
-## Pengertian
+## Pengertian Router
 
 Jika kita ingin berganti dari satu halaman ke halaman yang lainnya dalam website diperlukan suatu proses routing. Perpindahan halaman tersebut diantaranya seperti dari halaman Home, ke halaman About/ Porto dan halaman-lainnya. Routing sendiri adalah proses pemetaan antara sebuah URL ke dalam sebuah halaman yang terdapat konten / UI (User Interface) sesuai dengan URL yang dituju. Untuk dapat membuat routing kita membutuhkan library  Library tersebut yaitu __"react-router-dom"__. Untuk dapat menggunakan reacr-router, terlebih dahulu kita harus mengimport BorwserRouter & Route yang nantinya tag tersebut akan dipakai sebagai pembungkus terluar.
 ```javascript
@@ -95,7 +95,7 @@ Jika kita ingin berganti dari satu halaman ke halaman yang lainnya dalam website
     </nav>
 ```
 
-## Penggunaan
+## Penggunaan Router
 
 React-router secara garis besar hampir mirip dengan HTML biasanya hanya saja sedikit ada perbedaan dalam penerapannya.HTML ketika kita hendak menyisipkan link / file HTML untuk berpindah halaman kita menggunakan tag "anchor", sedangkan dalam react-router menggunakan tag 'Link'. Selain tag 'Link' untuk dapat berindah halaman, terdapat salah satu Hook yang bernama 'useNavigate()' yang sebenarnya juga sama seperti tag "Link" untuk berpindah halaman, namun 'useNavigat' lebih disarankan karena lebih kompatibel.
 
@@ -131,7 +131,7 @@ Selain itu ada juga __outlet__ yang digunakan untuk memanggil anak-anak (halaman
     
     export default About;
 ```
-Dengan menambahlan attribute index di dalam tag "Route" di file, halaman ini akan menjadi halaman pertama ditampilkan. 'Nested' route Ini adalah salah satu fitur paling kuat dari React Router sehingga Anda tidak perlu dipusingkan dengan kode tata letak yang rumit. Sebagian besar tata letak Anda digabungkan ke segmen URL dan React Router mencakup ini sepenuhnya. Route dapat bersarang di dalam satu sama lain, dan jalurnya juga akan bersarang (anak mewarisi induknya).
+Dengan menambahkan attribute index di dalam tag "Route" di file, halaman ini akan menjadi halaman pertama ditampilkan. 'Nested' route Ini adalah salah satu fitur paling kuat dari React Router sehingga Anda tidak perlu dipusingkan dengan kode tata letak yang rumit. Sebagian besar tata letak Anda digabungkan ke segmen URL dan React Router mencakup ini sepenuhnya. Route dapat bersarang di dalam satu sama lain, dan jalurnya juga akan bersarang (anak mewarisi induknya).
 
 ```javascript
     <Routes>
@@ -155,7 +155,7 @@ Dengan menambahlan attribute index di dalam tag "Route" di file, halaman ini aka
 
 # State Managemen Redux
 
-## Pengertian 
+## Pengertian Redux
 
 Redux adalah sebuah aplikasi state management. State management adalah cara untuk memfasilitasi komunikasi dan berbagai data lintas komponen. Redux berfungsi untuk melakukan perubahan state yang dibutuhkan oleh setiap fungsional yang ada di suatu aplikasi. Tujuan redux untuk mengatasi props drilling (penggunaan dan pendeklarasian props yang berulang ulang). Untuk membuat perubahan tersebut, Redux memiliki tiga komponen utama yaitu store , reducer, dan action. <br>
 
@@ -300,4 +300,77 @@ function App() {
 export default App
 ```
 
+# State Management Async Action with Redux Thunk and Middleware
 
+## Pengertian Redux Thunk
+Redux Thunk adalah sebuah  middleware yang memungkinkan kita untuk membuat Action yang _mengembalikan function_, _bukan action_. Selain itu, Thunk juga dapat membuat fungsi yang di dalamnya terdapat asynchronusnya agar kita dapat menunda proses pengambilan data di API.<br>
+ Penggunaan Redux Thunk
+
+ ```javascript
+ //installasi react-redux 
+    npm install redux react-redux
+//kemudian installasi redux thunk
+    npm install redux-thunk@2.3.0
+ ```
+
+
+## Berikut untuk contoh penerapannya
+
+
+```javascript
+    import { createStore, combineReducers, applyMiddleware } from 'redux';
+    import thunk from 'redux-thunk';
+    //Mengimport thunk dari react-redux
+    import todoReducer from '../todoReducer';
+    
+    //Combine reducer berfungsi untuk menampung lebih dari 1 reducer 
+    //karena 1 store hanya dapat menyimpan 1 reducer
+    //cara menyimpan beberapa reducer kedalam sebuah function
+    const allReducer = combineReducers({
+            todo: todoReducer,})
+    
+    const store = createStore(allReducer, applyMiddleware(thunk))
+    
+    export default store;
+```
+
+Untuk implementasi penggunaan Redux Thunk salah satunya dalah berkomunikasi secara asynchronus dengan API eksternal untuk mengambil atau menyimpan data.
+
+
+```javascript
+    import axios from "axios";
+    //Membuat variabel untuk menampung action
+    
+    export const GET_TODO = "GET_TODO";
+    export const FETCH_START = "FETCH_START";
+    export const SUCCESS_GET_TODO = "SUCCESS_GET_TODO";
+    
+    //Membuat function untuk tipe dari setiap action
+    function fetchStart() {
+        return {
+            type: FETCH_START,
+        };
+    }
+    
+    function successGetTodo(data) {
+        return {
+            type: SUCCESS_GET_TODO,
+            payload: data,
+        };
+    }
+export const getTodo = () => {
+  return async (dispatch) => {
+    // untuk action FETCH_START
+    dispatch(fetchStart());
+    // untuk mendapatkan data todo dari API
+    const result = await axios.get(
+      "https://63478a450484786c6e82998f.mockapi.io/todo"
+    );
+    // untuk action SUCCESS_GET_TODO
+    dispatch(successGetTodo(result.data));
+  };
+};
+
+
+Terimakasih
+_7 November 2022 12.04  @lyalfya_
